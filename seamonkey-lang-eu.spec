@@ -1,5 +1,5 @@
-Summary:	eu-ES resources for SeaMonkey
-Summary(pl):	eu-ES pliki jêzykowe dla SeaMonkeya
+Summary:	Euskara resources for SeaMonkey
+Summary(pl):	Baskijskie pliki jêzykowe dla SeaMonkeya
 Name:		seamonkey-lang-eu
 Version:	1.0
 Release:	1
@@ -13,16 +13,17 @@ BuildRequires:	unzip
 Requires(post,postun):	seamonkey >= %{version}
 Requires(post,postun):	textutils
 Requires:	seamonkey >= %{version}
+Conflicts:	seamonkey-lang-es
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_chromedir	%{_datadir}/seamonkey/chrome
 
 %description
-eu-ES resources for SeaMonkey.
+Euskata resources for SeaMonkey.
 
 %description -l pl
-eu-ES pliki jêzykowe dla SeaMonkeya.
+Baskijskie pliki jêzykowe dla SeaMonkeya.
 
 %prep
 %setup -q -c -T
