@@ -26,10 +26,10 @@ Euskata resources for SeaMonkey.
 Baskijskie pliki jêzykowe dla SeaMonkeya.
 
 %prep
-%setup -q -c -T
-unzip %{SOURCE0}
+%setup -q -c
 install %{SOURCE1} .
-./gen-installed-chrome.sh locale bin/chrome/{ES,eu-ES,eu-unix}.jar > lang-eu-installed-chrome.txt
+./gen-installed-chrome.sh locale bin/chrome/{ES,eu-ES,eu-unix}.jar \
+	> lang-eu-installed-chrome.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -50,10 +50,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_chromedir}/eu-ES.jar
-%{_chromedir}/eu-unix.jar
 # warning, file conflict with seamonkey-lang-es
 %{_chromedir}/ES.jar
+%{_chromedir}/eu-ES.jar
+%{_chromedir}/eu-unix.jar
 %{_chromedir}/lang-eu-installed-chrome.txt
 # warning, possible file conflict with seamonkey-lang-es
 %{_datadir}/seamonkey/defaults/profile/ES
