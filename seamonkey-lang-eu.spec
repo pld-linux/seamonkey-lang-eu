@@ -1,11 +1,14 @@
+%define	_lang	eu
+%define	_reg	ES
+%define	_lare	%{_lang}-%{_reg}
 Summary:	Euskara resources for SeaMonkey
 Summary(pl):	Baskijskie pliki jêzykowe dla SeaMonkeya
-Name:		seamonkey-lang-eu
+Name:		seamonkey-lang-%{_lang}
 Version:	1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.eu-ES.langpack.xpi
+Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
 # Source0-md5:	65ac69003ff53faefc76467dfac8ac51
 Source1:	gen-installed-chrome.sh
 URL:		http://www.mozilla.org/projects/seamonkey/
@@ -28,15 +31,15 @@ Baskijskie pliki jêzykowe dla SeaMonkeya.
 %prep
 %setup -q -c
 install %{SOURCE1} .
-./gen-installed-chrome.sh locale bin/chrome/{ES,eu-ES,eu-unix}.jar \
-	> lang-eu-installed-chrome.txt
+./gen-installed-chrome.sh locale bin/chrome/{%{_reg},%{_lare},%{_lang}-unix}.jar \
+	> lang-%{_lang}-installed-chrome.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_chromedir}
 
-install bin/chrome/{ES,eu-ES,eu-unix}.jar $RPM_BUILD_ROOT%{_chromedir}
-install lang-eu-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
+install bin/chrome/{%{_reg},%{_lare},%{_lang}-unix}.jar $RPM_BUILD_ROOT%{_chromedir}
+install lang-%{_lang}-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
 cp -r bin/defaults $RPM_BUILD_ROOT%{_datadir}/seamonkey
 
 %clean
@@ -51,9 +54,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 # warning, file conflict with seamonkey-lang-es
-%{_chromedir}/ES.jar
-%{_chromedir}/eu-ES.jar
-%{_chromedir}/eu-unix.jar
-%{_chromedir}/lang-eu-installed-chrome.txt
+%{_chromedir}/%{_reg}.jar
+%{_chromedir}/%{_lare}.jar
+%{_chromedir}/%{_lang}-unix.jar
+%{_chromedir}/lang-%{_lang}-installed-chrome.txt
 # warning, possible file conflict with seamonkey-lang-es
-%{_datadir}/seamonkey/defaults/profile/ES
+%{_datadir}/seamonkey/defaults/profile/%{_reg}
