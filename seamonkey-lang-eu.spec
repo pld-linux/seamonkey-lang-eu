@@ -2,7 +2,7 @@
 %define	_reg	ES
 %define	_lare	%{_lang}-%{_reg}
 Summary:	Euskara resources for SeaMonkey
-Summary(pl):	Baskijskie pliki jêzykowe dla SeaMonkeya
+Summary(pl.UTF-8):   Baskijskie pliki jÄ™zykowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
 Version:	1.0
 Release:	1
@@ -25,8 +25,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Euskata resources for SeaMonkey.
 
-%description -l pl
-Baskijskie pliki jêzykowe dla SeaMonkeya.
+%description -l pl.UTF-8
+Baskijskie pliki jÄ™zykowe dla SeaMonkeya.
 
 %prep
 %setup -q -c
