@@ -7,7 +7,7 @@ Name:		seamonkey-lang-%{_lang}
 Version:	1.0
 Release:	1
 License:	GPL
-Group:		X11/Applications/Networking
+Group:		I18n
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
 # Source0-md5:	65ac69003ff53faefc76467dfac8ac51
 Source1:	gen-installed-chrome.sh
